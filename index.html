@@ -200,3 +200,53 @@ function closeAll(){
 </body>
 
 </html>
+
+// ===== POPUP =====
+function openPopup(id) {
+  closeAll();
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function closeAll() {
+  document.querySelectorAll(".popup").forEach(p => {
+    p.classList.add("hidden");
+  });
+}
+
+// ===== PASSWORD =====
+let pwInput = "";
+
+function addNum(num) {
+  pwInput += num;
+  document.getElementById("pwDisplay").innerText = pwInput;
+}
+
+function clearPW() {
+  pwInput = "";
+  document.getElementById("pwDisplay").innerText = "";
+}
+
+function checkPW() {
+  if (pwInput === "0812") { // password
+    openPopup("letterIcon");
+  } else {
+    alert("salah yaa 🤍");
+    clearPW();
+  }
+}
+
+// ===== LETTER =====
+function openLetter() {
+  openPopup("letter");
+}
+
+// ===== SPOTIFY =====
+function openSpotify() {
+  window.open("https://open.spotify.com/", "_blank");
+}
+
+// ===== GAME =====
+function move(x, y) {
+  const btn = document.getElementById("noBtn");
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
